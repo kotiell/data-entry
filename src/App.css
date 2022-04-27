@@ -25,3 +25,7 @@
   flex-direction: column;
   justify-content: flex-start;
 }
+
+.hide{
+  display:none;
+}

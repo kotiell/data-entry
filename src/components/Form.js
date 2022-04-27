@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 
-const Form = () => {
+const Form = (props) => {
   let savedSubmissions = [];
   if (localStorage.getItem('submissions')) {
     savedSubmissions = localStorage.getItem('submissions');
@@ -28,14 +28,14 @@ const Form = () => {
     newSubmission.favNumber = document.querySelector('input[name="favorite-number"]').value;
     //this adds the new submission to the entries array
     setEntries([...entries, newSubmission]);
+    props.showForm(true)
+    console.log()
   }
 
   // watching for entries updates
   // once it is updated localStorage is also updated with the new array
   useEffect(() => {
-    const submissions = localStorage.getItem("submissions");
-    console.log( JSON.parse(submissions));
-    console.log(entries);
+
     localStorage.setItem("submissions", JSON.stringify(entries))
   }, [entries])
 
