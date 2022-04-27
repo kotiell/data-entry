@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Form from '../components/Form';
 
 
@@ -29,6 +30,7 @@ const DataEntry = function () {
           <Form showForm={setShowForm} />
           <div class="hide" id="data-submitted">
             <p>Your data was submitted</p>
+            <Link to="/view">View All Submissions</Link>
             <button onClick={() =>{
               setShowForm(false);
             }}>Submit Another Person</button>
