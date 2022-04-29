@@ -30,7 +30,7 @@ const DataEntry = function () {
   return (
     <div className="bg-contain bg-no-repeat bg-right-bottom" style={{ backgroundImage: `url(${Background})` }}>
       <div className="container">
-        <h1 className="text-[26px] font-bold">Enter Your Information</h1>
+        <h1 className="text-[42px] font-bold mb-2">Enter The Information</h1>
         <div className="form-container">
           <Form showForm={setShowForm} />
           <div className="hide" id="data-submitted">
