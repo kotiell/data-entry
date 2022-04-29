@@ -4,6 +4,10 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    colors: {
+      brandColor: '#3DC8A6',
+      brandColorHover: '#33A68A'
+    },
   },
   plugins: [],
 }

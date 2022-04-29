@@ -8,7 +8,7 @@
 }
 
 .form-display input, .form-display select{
-  margin: 1rem 0;
+  margin-bottom: 1rem;
   padding: 1rem;
 }
 
@@ -34,17 +34,42 @@
   display:none;
 }
 
+@keyframes slideUp{
+  from{
+    opacity: 10%;
+    margin-top: 30px;
+  }
+  to{
+    margin-top: 0;}
+}
+
 .submission-row{
+  animation-name: slideUp;
+  animation-duration: 0.75s;
   background-color: rgb(61, 200, 166);
-  border-radius: 4px;
-  display:flex;
   justify-content: space-between;
   color: #fff;
-  padding: 1rem;
-  margin-bottom: 2rem;
   transition: 200ms ease-in-out;
 }
-.submission-row:hover{
-  
-  box-shadow: 0 6px 8px rgba(0,0,0,.25);
+
+
+
+input,select{
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.05);
+}
+
+.button{
+  display:inline-block;
+  border-radius: 4px;
+  color: white;
+  font-weight: 600;
+  transition: 200ms ease-in-out;
+}
+
+
+label span{
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin-bottom: 0.125rem;
 }

@@ -1,15 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useContext } from 'react';
+import uuid from 'react-uuid';
+import { EntriesContext } from '../EntriesContext';
 
 
 const Form = (props) => {
-  let savedSubmissions = [];
-  if (localStorage.getItem('submissions')) {
-    savedSubmissions = localStorage.getItem('submissions');
-    savedSubmissions = JSON.parse(savedSubmissions);
-  }
-  const [entries, setEntries] = useState(savedSubmissions);
+  const {entries, setEntries} = useContext(EntriesContext);
+
 
   const newSubmission = {
+    id: uuid(),
     name: '',
     gender: '',
     mStatus: '',
@@ -19,7 +18,6 @@ const Form = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     //Get each input/select and add it to the object
     newSubmission.name = document.querySelector('input[name="name"]').value;
     newSubmission.gender = document.querySelector('select[name="gender"]').value;
@@ -29,49 +27,49 @@ const Form = (props) => {
     //this adds the new submission to the entries array
     setEntries([...entries, newSubmission]);
     props.showForm(true)
-    console.log()
   }
 
   // watching for entries updates
   // once it is updated localStorage is also updated with the new array
   useEffect(() => {
-
-    localStorage.setItem("submissions", JSON.stringify(entries))
+    localStorage.setItem("submissions", JSON.stringify(entries));
   }, [entries])
 
   //localStorage.setItem("submissions",entries);
   return (
     <form className="form-display" onSubmit={handleSubmit}>
       <label>
-        Name
-        <input type="text" name="name" />
+        <span>Name</span>
+        <input type="text" name="name" required />
       </label>
       <label>
-        Gender
-        <select name="gender">
-          <option>Choose</option>
+        <span>Gender</span>
+        <select name="gender" required>
+          <option value="">Choose</option>
           <option>Female</option>
           <option>Male</option>
           <option>Prefer not to say</option>
         </select>
       </label>
       <label>
-        Martial Status
-        <select name="m-status">
-          <option>Status</option>
+        <span>Martial Status</span>
+        <select name="m-status" required>
+          <option value="">Status</option>
           <option>Married</option>
           <option>Single</option>
         </select>
       </label>
       <label>
-        Date of Birth
-        <input type="date" name="date-of-birth" />
+        <span>Date of Birth</span>
+        <input type="date" name="date-of-birth" required />
       </label>
       <label>
-        Favorite Number
-        <input type="text" name="favorite-number" />
+        <span>Favorite Number</span>
+        <input type="number" name="favorite-number" required />
       </label>
-      <button>Enter Data</button>
+      <div>
+        <button className="bg-brandColor hover:bg-brandColorHover button p-4 shadow-md hover:shadow-lg">Enter The Data</button>
+      </div>
     </form>
   )
 }
