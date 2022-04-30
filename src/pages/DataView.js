@@ -8,9 +8,20 @@ import Background from '../images/web-background.png';
 const DataView = () => {
   const { entries, setEntries } = useContext(EntriesContext);
 
+  /*
+    FizzBuzz function
+    pass a number to it and it return a string of fizz, buzz, or fizzbuzz
+    if it isn't one of those three it returns it's original number
+  */
   const fizzBuzz = (num) => {
+    // start the output as the original number incase it doesn't meet one of the statements below
     let output = num;
     if (num % 3 === 0 || num % 5 === 0) {
+      /*
+        Now that we know it will be one of those, we set output to a blank string
+        this is because of the option of it being fizzbuzz, we need to be able to 
+        add the two strings together.
+      */
       output = '';
       if (num % 3 === 0) {
         output += "Fizz";
@@ -22,15 +33,19 @@ const DataView = () => {
     return output;
   }
 
-  let deleteSubmissions = entries;
 
   entries.reverse();
 
+  /*
+    Set up a bunch of blank arrays to store the different array types.
+    This allows us to display them in sections below.
+  */
   let fizzArray = [];
   let buzzArray = [];
   let fizzBuzzArray = [];
   let numberArray = []
 
+  // Sort the main array of entries into separate arrays for displaying below
   entries.forEach((item) => {
     item.favNumber = fizzBuzz(item.favNumber);
     if (item.favNumber === 'Fizz') {
@@ -44,6 +59,14 @@ const DataView = () => {
     }
   });
 
+
+  /* 
+    This is the information that handles deleting an object from the main array.
+    I create a duplicate array based off the entires array in order to have access to the 
+    original number instead of fizzbuzz. This allows us to keep the original data incase it's 
+    neeeded later.
+  */
+  let deleteSubmissions = entries;
   const deleteData = (theId) => {
     const deleteIndex = entries.find((item) => item.id === theId);
     deleteSubmissions.splice(deleteIndex, 1)
@@ -51,6 +74,11 @@ const DataView = () => {
     setEntries(deleteSubmissions);
   }
 
+
+  /*
+    We use this function to display each array below. You pass in the array you need to display
+    and it maps through it.
+  */
   const displayContent = (theArray) => {
     return (
       <div className="grid gap-4 ">
