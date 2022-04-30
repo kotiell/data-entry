@@ -4,9 +4,11 @@ import { EntriesContext } from '../EntriesContext';
 
 
 const Form = (props) => {
-  const {entries, setEntries} = useContext(EntriesContext);
+  // here we set the initial entries value using useContext
+  // useContext makes it so the entries data is shared with DataView, DataEntry, and the Form component
+  const { entries, setEntries } = useContext(EntriesContext);
 
-
+  // create a new object for the submission
   const newSubmission = {
     id: uuid(),
     name: '',
@@ -16,6 +18,9 @@ const Form = (props) => {
     favNumber: '',
   };
 
+  // this function is called when the form is submitted.
+  // it gets the value for all the fields and adds them to the object
+  // then the object is added to the other arrays
   const handleSubmit = (e) => {
     e.preventDefault();
     //Get each input/select and add it to the object
@@ -35,7 +40,7 @@ const Form = (props) => {
     localStorage.setItem("submissions", JSON.stringify(entries));
   }, [entries])
 
-  //localStorage.setItem("submissions",entries);
+  
   return (
     <form className="form-display" onSubmit={handleSubmit}>
       <label>

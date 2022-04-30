@@ -8,20 +8,16 @@ import Background from '../images/web-background.png';
 const DataEntry = function () {
 
   let navigate = useNavigate();
+  /*
+   was created to have the option to hide form in order to have a popup to continue or add another
+   showForm indicates that the form has been submitted, it is now being used to know when to redirect the user 
+   to the DataView component 
+   */
   const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     if (showForm) {
-
       navigate('/view');
-      // console.log('Hello World')
-      // document.querySelector('#data-submitted').classList.remove('hide');
-      // document.querySelector('form').classList.add('hide');
-    } else {
-      // document.querySelector('#data-submitted').classList.add('hide');
-      // document.querySelector('form').classList.remove('hide');
-      // document.querySelector('form').reset();
-
     }
   }, [showForm, navigate])
 
