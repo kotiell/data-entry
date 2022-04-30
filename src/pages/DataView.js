@@ -142,7 +142,7 @@ const DataView = () => {
           //display Buzz
           displayContent(numberArray)
         }
-        <Link to="/" className="button p-4 shadow-md hover:shadow-lg bg-brandColor hover:bg-brandColorHover mt-6">Add Another Person</Link>
+        <Link to="/" className="text-white button p-4 shadow-md hover:shadow-lg bg-brandColor hover:bg-brandColorHover mt-6">Add Another Person</Link>
 
       </div>
     </div>

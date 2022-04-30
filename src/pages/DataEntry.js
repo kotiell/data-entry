@@ -29,6 +29,13 @@ const DataEntry = function () {
         <h1 className="text-[42px] font-bold mb-2">Enter The Information</h1>
         <div className="form-container">
           <Form showForm={setShowForm} />
+          {/*
+          
+          This was a popup that appeared after a submission was entered, 
+          it didn't quite follow the idea of redirecting people so I took 
+          it out for the project. One the form was submitted the form was 
+          hidden and this was shown to allow the users to enter more people.
+
           <div className="hide" id="data-submitted">
             <p>Your data was submitted</p>
             <Link to="/view">View All Submissions</Link>
@@ -36,7 +43,10 @@ const DataEntry = function () {
               setShowForm(false);
             }}>Submit Another Person</button>
           </div>
+          */
+          }
         </div>
+        <Link className="text-brandColor float-right button outline mt-3 dark px-2 py-1 shadow-md hover:shadow-lg" to="/view">View The Data</Link>
       </div>
     </div>
   )

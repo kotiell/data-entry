@@ -40,7 +40,7 @@ const Form = (props) => {
     localStorage.setItem("submissions", JSON.stringify(entries));
   }, [entries])
 
-  
+
   return (
     <form className="form-display" onSubmit={handleSubmit}>
       <label>
@@ -73,7 +73,7 @@ const Form = (props) => {
         <input type="number" name="favorite-number" required />
       </label>
       <div>
-        <button className="bg-brandColor hover:bg-brandColorHover button p-4 shadow-md hover:shadow-lg">Enter The Data</button>
+        <button className="bg-brandColor hover:bg-brandColorHover button px-4 py-3 shadow-md hover:shadow-lg text-white ">Enter The Data</button>
       </div>
     </form>
   )

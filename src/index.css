@@ -62,11 +62,9 @@ input,select{
 .button{
   display:inline-block;
   border-radius: 4px;
-  color: white;
   font-weight: 600;
   transition: 200ms ease-in-out;
 }
-
 
 label span{
   font-weight: 600;
