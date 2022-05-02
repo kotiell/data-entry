@@ -96,7 +96,7 @@ const DataView = () => {
                   <span className="font-medium">Martial Status:</span> {item.mStatus}<span className="invisible md:visible">&nbsp;|&nbsp;</span>
                 </span>
                 <span>
-                  <span className="font-medium">Date of Birth:</span> {item.dateOfBirth}<span className="invisible md:visible">&nbsp;|&nbsp;</span>
+                  <span className="font-medium">Date of Birth:</span> {item.dateOfBirth}
                 </span>
               </div>
             </div>
