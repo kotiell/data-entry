@@ -73,7 +73,8 @@ const DataView = () => {
     localStorage.setItem('submissions', JSON.stringify(deleteSubmissions))
     setEntries(deleteSubmissions);
   }
-
+  // for formatting the birthday
+  const dateOfBirthOptions = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
 
   /*
     We use this function to display each array below. You pass in the array you need to display
@@ -96,7 +97,7 @@ const DataView = () => {
                   <span className="font-medium">Martial Status:</span> {item.mStatus}<span className="invisible md:visible">&nbsp;|&nbsp;</span>
                 </span>
                 <span>
-                  <span className="font-medium">Date of Birth:</span> {item.dateOfBirth}
+                  <span className="font-medium">Date of Birth:</span> {new Date(item.dateOfBirth).toLocaleDateString('en-us', dateOfBirthOptions)}
                 </span>
               </div>
             </div>
