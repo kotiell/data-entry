@@ -64,7 +64,7 @@ const DataView = () => {
     This is the information that handles deleting an object from the main array.
     I create a duplicate array based off the entires array in order to have access to the 
     original number instead of fizzbuzz. This allows us to keep the original data incase it's 
-    neeeded later.
+    needed later.
   */
   let deleteSubmissions = entries;
   const deleteData = (theId) => {
